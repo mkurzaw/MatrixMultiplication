@@ -14,3 +14,19 @@ C:\Users\48512\Source\Repos\malikerro\Zad3.NET\ConsoleApp_lab3\ConsoleApp_lab3\o
 C:\Users\48512\Source\Repos\malikerro\Zad3.NET\ConsoleApp_lab3\ConsoleApp_lab3\obj\Debug\net5.0\ConsoleApp_lab3.pdb
 C:\Users\48512\Source\Repos\malikerro\Zad3.NET\ConsoleApp_lab3\ConsoleApp_lab3\obj\Debug\net5.0\ConsoleApp_lab3.genruntimeconfig.cache
 C:\Users\48512\Source\Repos\malikerro\Zad3.NET\ConsoleApp_lab3\ConsoleApp_lab3\obj\Debug\net5.0\ref\ConsoleApp_lab3.dll
+E:\PWr\VI_semestr\.NET i Java\lab03_NET\Zad3.NET\ConsoleApp_lab3\ConsoleApp_lab3\bin\Debug\net5.0\ConsoleApp_lab3.exe
+E:\PWr\VI_semestr\.NET i Java\lab03_NET\Zad3.NET\ConsoleApp_lab3\ConsoleApp_lab3\bin\Debug\net5.0\ConsoleApp_lab3.deps.json
+E:\PWr\VI_semestr\.NET i Java\lab03_NET\Zad3.NET\ConsoleApp_lab3\ConsoleApp_lab3\bin\Debug\net5.0\ConsoleApp_lab3.runtimeconfig.json
+E:\PWr\VI_semestr\.NET i Java\lab03_NET\Zad3.NET\ConsoleApp_lab3\ConsoleApp_lab3\bin\Debug\net5.0\ConsoleApp_lab3.runtimeconfig.dev.json
+E:\PWr\VI_semestr\.NET i Java\lab03_NET\Zad3.NET\ConsoleApp_lab3\ConsoleApp_lab3\bin\Debug\net5.0\ConsoleApp_lab3.dll
+E:\PWr\VI_semestr\.NET i Java\lab03_NET\Zad3.NET\ConsoleApp_lab3\ConsoleApp_lab3\bin\Debug\net5.0\ConsoleApp_lab3.pdb
+E:\PWr\VI_semestr\.NET i Java\lab03_NET\Zad3.NET\ConsoleApp_lab3\ConsoleApp_lab3\obj\Debug\net5.0\ConsoleApp_lab3.csproj.AssemblyReference.cache
+E:\PWr\VI_semestr\.NET i Java\lab03_NET\Zad3.NET\ConsoleApp_lab3\ConsoleApp_lab3\obj\Debug\net5.0\ConsoleApp_lab3.GeneratedMSBuildEditorConfig.editorconfig
+E:\PWr\VI_semestr\.NET i Java\lab03_NET\Zad3.NET\ConsoleApp_lab3\ConsoleApp_lab3\obj\Debug\net5.0\ConsoleApp_lab3.AssemblyInfoInputs.cache
+E:\PWr\VI_semestr\.NET i Java\lab03_NET\Zad3.NET\ConsoleApp_lab3\ConsoleApp_lab3\obj\Debug\net5.0\ConsoleApp_lab3.AssemblyInfo.cs
+E:\PWr\VI_semestr\.NET i Java\lab03_NET\Zad3.NET\ConsoleApp_lab3\ConsoleApp_lab3\obj\Debug\net5.0\ConsoleApp_lab3.csproj.CoreCompileInputs.cache
+E:\PWr\VI_semestr\.NET i Java\lab03_NET\Zad3.NET\ConsoleApp_lab3\ConsoleApp_lab3\obj\Debug\net5.0\ConsoleApp_lab3.dll
+E:\PWr\VI_semestr\.NET i Java\lab03_NET\Zad3.NET\ConsoleApp_lab3\ConsoleApp_lab3\obj\Debug\net5.0\refint\ConsoleApp_lab3.dll
+E:\PWr\VI_semestr\.NET i Java\lab03_NET\Zad3.NET\ConsoleApp_lab3\ConsoleApp_lab3\obj\Debug\net5.0\ConsoleApp_lab3.pdb
+E:\PWr\VI_semestr\.NET i Java\lab03_NET\Zad3.NET\ConsoleApp_lab3\ConsoleApp_lab3\obj\Debug\net5.0\ConsoleApp_lab3.genruntimeconfig.cache
+E:\PWr\VI_semestr\.NET i Java\lab03_NET\Zad3.NET\ConsoleApp_lab3\ConsoleApp_lab3\obj\Debug\net5.0\ref\ConsoleApp_lab3.dll

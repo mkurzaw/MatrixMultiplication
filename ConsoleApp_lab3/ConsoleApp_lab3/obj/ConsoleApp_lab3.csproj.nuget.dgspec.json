@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\48512\\Source\\Repos\\malikerro\\Zad3.NET\\ConsoleApp_lab3\\ConsoleApp_lab3\\ConsoleApp_lab3.csproj": {}
+    "E:\\PWr\\VI_semestr\\.NET i Java\\lab03_NET\\Zad3.NET\\ConsoleApp_lab3\\ConsoleApp_lab3\\ConsoleApp_lab3.csproj": {}
   },
   "projects": {
-    "C:\\Users\\48512\\Source\\Repos\\malikerro\\Zad3.NET\\ConsoleApp_lab3\\ConsoleApp_lab3\\ConsoleApp_lab3.csproj": {
+    "E:\\PWr\\VI_semestr\\.NET i Java\\lab03_NET\\Zad3.NET\\ConsoleApp_lab3\\ConsoleApp_lab3\\ConsoleApp_lab3.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\48512\\Source\\Repos\\malikerro\\Zad3.NET\\ConsoleApp_lab3\\ConsoleApp_lab3\\ConsoleApp_lab3.csproj",
+        "projectUniqueName": "E:\\PWr\\VI_semestr\\.NET i Java\\lab03_NET\\Zad3.NET\\ConsoleApp_lab3\\ConsoleApp_lab3\\ConsoleApp_lab3.csproj",
         "projectName": "ConsoleApp_lab3",
-        "projectPath": "C:\\Users\\48512\\Source\\Repos\\malikerro\\Zad3.NET\\ConsoleApp_lab3\\ConsoleApp_lab3\\ConsoleApp_lab3.csproj",
-        "packagesPath": "C:\\Users\\48512\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\48512\\Source\\Repos\\malikerro\\Zad3.NET\\ConsoleApp_lab3\\ConsoleApp_lab3\\obj\\",
+        "projectPath": "E:\\PWr\\VI_semestr\\.NET i Java\\lab03_NET\\Zad3.NET\\ConsoleApp_lab3\\ConsoleApp_lab3\\ConsoleApp_lab3.csproj",
+        "packagesPath": "C:\\Users\\malic\\.nuget\\packages\\",
+        "outputPath": "E:\\PWr\\VI_semestr\\.NET i Java\\lab03_NET\\Zad3.NET\\ConsoleApp_lab3\\ConsoleApp_lab3\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\48512\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\malic\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -58,7 +58,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     }
