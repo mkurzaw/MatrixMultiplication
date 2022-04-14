@@ -79,7 +79,7 @@ namespace ConsoleApp1
             {
                 int threadNumber = int.Parse(Thread.CurrentThread.Name);
 
-                for (int i = threadNumber; i < aRows; i += threadsAmount) // tu możliwy błąd
+                for (int i = threadNumber; i < aRows; i += threadsAmount)
                 {
                     for (int j = 0; j < bColumns; j++)
                     {
@@ -144,9 +144,15 @@ namespace ConsoleApp1
             }
             else
             {
-                Console.WriteLine("\nNie wyświetlono macierzy B ze względu na zbyt duże wymiary");
+                Console.WriteLine("Nie wyświetlono macierzy B ze względu na zbyt duże wymiary\n");
             }
 
+
+
+            /***************************************************************
+             *      CZEŚĆ WIELOWĄTKOWA
+             ***************************************************************/
+            
             ThreadClass threadObject = new ThreadClass();
             var watch = System.Diagnostics.Stopwatch.StartNew();
             Thread[] threads = new Thread[threadsAmount];
@@ -164,8 +170,7 @@ namespace ConsoleApp1
 
             for (int i = 0; i < threadsAmount; i++)
                 threads[i].Join();
-            watch.Stop();
-            var elapsedMs = watch.ElapsedMilliseconds;
+            var elapsedMs1 = watch.ElapsedMilliseconds;
 
             if (aRows <= maxSizeToView && bColumns <= maxSizeToView)
             {
@@ -174,10 +179,55 @@ namespace ConsoleApp1
             }
             else
             {
-                Console.WriteLine("\nNie wyświetlono macierzy wynikowej ze względu na zbyt duże wymiary");
+                Console.WriteLine("[WERSJA WIELOWĄTKOWA] Nie wyświetlono macierzy wynikowej ze względu na zbyt duże wymiary");
             }
 
-            Console.WriteLine("\nCzas obliczeń wersji wielowątkowej: " + elapsedMs + " ms");
+            Console.WriteLine("[WERSJA WIELOWĄTKOWA] Czas obliczeń: " + elapsedMs1 + " ms\n");
+
+
+
+            /***************************************************************
+             *      CZEŚĆ SEKWENCYJNA
+             ***************************************************************/
+
+            int[,] Matrix = new int[aRows, bColumns];
+
+            var elapsedMs2 = watch.ElapsedMilliseconds;
+
+            // obliczenia
+            for (int i = 0; i < aRows; i++)
+            {
+                for (int j = 0; j < bColumns; j++)
+                {
+                    Matrix[i, j] = 0;
+                    for (int k = 0; k < aColumns; k++)
+                    {
+                        Matrix[i, j] += aMatrix[i, k] * bMatrix[k, j];
+                    }
+                }
+            }
+
+            watch.Stop();
+            var elapsedMs3 = watch.ElapsedMilliseconds - elapsedMs2;
+
+            if (aRows <= maxSizeToView && bColumns <= maxSizeToView)
+            {
+                Console.WriteLine("\nMacierz wynikowa:");
+                for (int i = 0; i < aRows; i++)
+                {
+                    for (int j = 0; j < bColumns; j++)
+                    {
+                        Console.Write(Matrix[i, j] + "     ");
+                    }
+                    Console.WriteLine();
+                }
+            }
+            else
+            {
+                Console.WriteLine("[WERSJA SEKWENCYJNA] Nie wyświetlono macierzy wynikowej ze względu na zbyt duże wymiary");
+            }
+
+            Console.WriteLine("[WERSJA SEKWENCYJNA] Czas obliczeń: " + elapsedMs3 + " ms");
         }
     }
 }
