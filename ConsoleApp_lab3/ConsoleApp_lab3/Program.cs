@@ -1,136 +1,183 @@
 ﻿using System;
 using System.Threading;
 
+
 namespace ConsoleApp1
 {
     class Program
     {
-        static int m, n, p, q, i, j;
-        static int[,] a, b;
+        // zmienne globalne
+        static int aRows, aColumns, bRows, bColumns;
+        static int[,] aMatrix, bMatrix;
+        static int threadsAmount;
+        const int maxThreadsAmount = 8; // ilość wątków
 
-        static void loadParameters()
+
+        // metoda globalna do ustalenia przez użytkownika
+        // wymiarów macierzy do przemnożenia
+        static void LoadParameters()
         {
             Console.WriteLine("\nPodaj rozmiar m macierzy A: ");
-            m = int.Parse(Console.ReadLine());
+            aRows = int.Parse(Console.ReadLine());
 
             Console.WriteLine("\nPodaj rozmiar n macierzy A: ");
-            n = int.Parse(Console.ReadLine());
+            aColumns = int.Parse(Console.ReadLine());
 
             Console.WriteLine("\nPodaj rozmiar p macierzy B: ");
-            p = int.Parse(Console.ReadLine());
+            bRows = int.Parse(Console.ReadLine());
 
             Console.WriteLine("\nPodaj rozmiar q macierzy B: ");
-            q = int.Parse(Console.ReadLine());
+            bColumns = int.Parse(Console.ReadLine());
 
-            if (n != p)
+            if (aColumns != bRows)
             {
                 Console.Write("Mnozenie macierzy niemozliwe. Podaj poprawne wymiary\n");
-                loadParameters();
+                LoadParameters();
             }
             else
             {
-                a = new int[m, n];
-                b = new int[p, q];
-
-                for (i = 0; i < m; i++)
+                // jesli wierszy macierzy wynikowej jest mniej niż 8 (maxThreadsAmount)
+                // to ilość wątków = ilość wierszy 
+                if (aRows < maxThreadsAmount)
                 {
-                    for (j = 0; j < n; j++)
+                    threadsAmount = aRows;
+                }
+                else
+                {
+                    threadsAmount = maxThreadsAmount;
+                }
+
+                aMatrix = new int[aRows, aColumns];
+                bMatrix = new int[bRows, bColumns];
+
+                for (int i = 0; i < aRows; i++)
+                {
+                    for (int j = 0; j < aColumns; j++)
                     {
-                        a[i, j] = j + i*n;    // elementy macierzy = kolejne liczby naturalne + 0
+                        aMatrix[i, j] = j + i*aColumns;    // elementy macierzy = kolejne liczby naturalne + 0
                     }
                 }
 
-                for (i = 0; i < p; i++)
+                for (int i = 0; i < bRows; i++)
                 {
-                    for (j = 0; j < q; j++)
+                    for (int j = 0; j < bColumns; j++)
                     {
-                        b[i, j] = j + i * n;    // elementy macierzy = kolejne liczby naturalne + 0
+                        bMatrix[i, j] = j + i * bColumns;    // elementy macierzy = kolejne liczby naturalne + 0
                     }
                 }
-
             }
         }
+
+
+
+
+        public class ThreadClass
+        {
+            private int[,] Matrix = new int[aRows, bColumns];
+
+            public void Multiplicate()
+            {
+                int threadNumber = int.Parse(Thread.CurrentThread.Name);
+
+                for (int i = threadNumber; i < aRows; i += threadsAmount) // tu możliwy błąd
+                {
+                    for (int j = 0; j < bColumns; j++)
+                    {
+                        Matrix[i, j] = 0;
+                        for (int k = 0; k < aColumns; k++)
+                        {
+                            Matrix[i, j] += aMatrix[i, k] * bMatrix[k, j];
+                        }
+                    }
+                }
+            }
+
+            public void ViewMatrix()
+            {
+                for (int i = 0; i < aRows; i++)
+                {
+                    for (int j = 0; j < bColumns; j++)
+                    {
+                        Console.Write(Matrix[i, j] + "      ");
+                    }
+                    Console.WriteLine("");
+                }
+            }
+        }
+
+
 
 
         static void Main(string[] args)
         {
-            //int m = 2, n = 3, p = 3, q = 3, i, j;
-            //int[,] a = { { 1, 4, 2 }, { 2, 5, 1 } };
-            //[,] b = { { 3, 4, 2 }, { 3, 5, 7 }, { 1, 2, 1 } };
+            LoadParameters();
+            const int maxSizeToView = 12; 
 
-            loadParameters();
-
-
-
-
-            Console.WriteLine("\nMatrix A:");
-            for (i = 0; i < m; i++)
+            if (aRows <= maxSizeToView && aColumns <= maxSizeToView)
             {
-                for (j = 0; j < n; j++)
+                Console.WriteLine("\nMacierz A:");
+                for (int i = 0; i < aRows; i++)
                 {
-                    Console.Write(a[i, j] + " ");
+                    for (int j = 0; j < aColumns; j++)
+                    {
+                        Console.Write(aMatrix[i, j] + "     ");
+                    }
+                    Console.WriteLine();
                 }
-                Console.WriteLine();
+            }
+            else
+            {
+                Console.WriteLine("\nNie wyświetlono macierzy A ze względu na zbyt duże wymiary");
             }
 
-            Console.WriteLine("\nMatrix B:");
-            for (i = 0; i < p; i++)
+            if (bRows <= maxSizeToView && bColumns <= maxSizeToView)
             {
-                for (j = 0; j < q; j++)
+                Console.WriteLine("\nMacierz B:");
+                for (int i = 0; i < bRows; i++)
                 {
-                    Console.Write(b[i, j] + " ");
+                    for (int j = 0; j < bColumns; j++)
+                    {
+                        Console.Write(bMatrix[i, j] + "     ");
+                    }
+                    Console.WriteLine();
                 }
-                Console.WriteLine();
+            }
+            else
+            {
+                Console.WriteLine("\nNie wyświetlono macierzy B ze względu na zbyt duże wymiary");
             }
 
-
-            Test test = new Test();
+            ThreadClass threadObject = new ThreadClass();
             var watch = System.Diagnostics.Stopwatch.StartNew();
-            Thread[] threads = new Thread[m];
+            Thread[] threads = new Thread[threadsAmount];
 
-            for (i = 0; i < m; i++)
+            for (int i = 0; i < threadsAmount; i++)
             {
-                var temp = i;
-                threads[i] = new Thread(() => test.multiplicate(a, b, q, m, n, i));
+                threads[i] = new Thread(threadObject.Multiplicate);
+                threads[i].Name = String.Format("{0}", i);
             }
-            for (i = 0; i < m; i++)
+
+            for (int i = 0; i < threadsAmount; i++)
             {
                 threads[i].Start();
             }
-            for (i = 0; i < m; i++)
+
+            for (int i = 0; i < threadsAmount; i++)
                 threads[i].Join();
             watch.Stop();
             var elapsedMs = watch.ElapsedMilliseconds;
-            Console.WriteLine(elapsedMs + " ms");
 
-
-
-        }
-        public class Test
-        {
-
-            public void multiplicate(int[,] A, int[,] B, int q, int m, int n, int j)
+            if (aRows <= maxSizeToView && bColumns <= maxSizeToView)
             {
-                Thread.Sleep(100);
-                Console.WriteLine();
-                int[] c = new int[q];
-
-                for (int i = 0; i < q; i++)
-                {
-                    c[i] = 0;
-                    for (int k = 0; k < n; k++)
-                    {
-                        c[i] += A[j, k] * B[k, i];
-                    }
-
-
-                }
-                for (int i = 0; i < q; i++)
-                {
-                    Console.WriteLine(c[i] + "\t");
-                }
-
+                Console.WriteLine("\nMacierz wynikowa:");
+                threadObject.ViewMatrix();
             }
+            else
+            {
+                Console.WriteLine("\nNie wyświetlono macierzy wynikowej ze względu na zbyt duże wymiary");
+            }
+
+            Console.WriteLine("\nCzas obliczeń wersji wielowątkowej: " + elapsedMs + " ms");
         }
     }
 }
