@@ -62,7 +62,7 @@ namespace ConsoleApp1
 
 
 
-
+/*
             Console.WriteLine("\nMatrix A:");
             for (i = 0; i < m; i++)
             {
@@ -82,7 +82,7 @@ namespace ConsoleApp1
                 }
                 Console.WriteLine();
             }
-
+*/
 
             Test test = new Test();
             var watch = System.Diagnostics.Stopwatch.StartNew();
@@ -125,10 +125,12 @@ namespace ConsoleApp1
 
 
                 }
+                /*
                 for (int i = 0; i < q; i++)
                 {
                     Console.WriteLine(c[i] + "\t");
                 }
+                */
 
             }
         }
